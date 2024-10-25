@@ -2,6 +2,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.games.enterprisechallenge.exception.VoluntarioJaExistenteException;
+import com.games.enterprisechallenge.exception.ContatoJaExistenteException;
+import com.games.enterprisechallenge.exception.UsuarioJaExistenteException;
+import com.games.enterprisechallenge.exception.AlunoJaExistenteException;
+import com.games.enterprisechallenge.exception.AlunoNaoExisteException;
 
 @RestControllerAdvice
 public class CustomizedExceptionHandler {
