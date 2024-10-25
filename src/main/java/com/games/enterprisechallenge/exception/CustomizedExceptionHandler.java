@@ -1,6 +1,7 @@
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import com.games.enterprisechallenge.exception.VoluntarioJaExistenteException;
 
 @RestControllerAdvice
 public class CustomizedExceptionHandler {
