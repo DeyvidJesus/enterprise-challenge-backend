@@ -1,6 +1,3 @@
-    git push --set-upstream origin masterpackage com.games.enterprisechallenge.exception;
-
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
