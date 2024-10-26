@@ -29,6 +29,7 @@ public class SecurityConfiguration {
                 .and().authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/alunos").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/alunos/**").authenticated() // Permitir PUT para alunos
                 .requestMatchers(HttpMethod.POST, "/voluntarios").permitAll()
                 .requestMatchers(HttpMethod.POST, "/contatos").permitAll()
                 .requestMatchers(HttpMethod.GET, "/oficinas").permitAll()
@@ -46,5 +47,4 @@ public class SecurityConfiguration {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }
