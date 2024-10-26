@@ -23,13 +23,12 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.cors() // Ativar CORS
+        return http.cors()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/alunos").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/alunos/**").permitAll() // Permitir PUT em /alunos/** sem autenticação
                 .requestMatchers(HttpMethod.POST, "/voluntarios").permitAll()
                 .requestMatchers(HttpMethod.POST, "/contatos").permitAll()
                 .requestMatchers(HttpMethod.GET, "/oficinas").permitAll()
@@ -48,4 +47,3 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 }
-    
