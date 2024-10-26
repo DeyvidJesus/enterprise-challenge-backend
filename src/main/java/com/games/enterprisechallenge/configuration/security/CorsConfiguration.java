@@ -12,9 +12,10 @@ public class CorsConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://enterprise-challenge-frontend.vercel.app") // Removido a barra final
+                .allowedOrigins("https://enterprise-challenge-frontend.vercel.app")
                 .allowedHeaders("*")
-                .allowedMethods("*") // Permitir todos os métodos (GET, POST, PUT, DELETE, etc.)
-                .allowCredentials(true); // Permitir credenciais se necessário
+                .allowedMethods("GET", "POST", "PUT", "DELETE") // Especificando métodos necessários
+                .allowedOriginPatterns("*") // Permite subdomínios
+                .allowCredentials(false); // Remover allowCredentials se não for necessário
     }
 }
