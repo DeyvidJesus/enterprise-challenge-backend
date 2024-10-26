@@ -23,11 +23,12 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.cors() // Habilitar CORS
+        return http.cors()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests()
-                .requestMatchers("/**").permitAll() // Permitir todas as rotas temporariamente para teste
+                .requestMatchers(HttpMethod.PUT, "/alunos/**").authenticated() // Permite apenas usuários autenticados para PUT
+                .requestMatchers("/**").permitAll() // Temporariamente permite outras rotas para teste
                 .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
