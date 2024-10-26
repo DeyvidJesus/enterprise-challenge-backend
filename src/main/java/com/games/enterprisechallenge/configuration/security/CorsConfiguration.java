@@ -15,6 +15,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
             .allowedOrigins("https://enterprise-challenge-frontend.vercel.app")
             .allowedHeaders("*")
             .allowedMethods("*") // Especificando métodos necessários
+            .allowedOriginPatterns("*") // Permite subdomínios
             .allowCredentials(true); // Remover allowCredentials se não for necessário
     }
 }
