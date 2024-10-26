@@ -23,18 +23,11 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.cors() // Ativar CORS
+        return http.cors() // Habilitar CORS
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "/alunos").permitAll()
-                .requestMatchers(HttpMethod.GET, "/alunos/**").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/alunos/**").permitAll() 
-                .requestMatchers(HttpMethod.POST, "/voluntarios").permitAll()
-                .requestMatchers(HttpMethod.POST, "/contatos").permitAll()
-                .requestMatchers(HttpMethod.GET, "/oficinas").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/**").permitAll() // Permitir todas as rotas temporariamente para teste
                 .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
